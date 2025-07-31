@@ -675,8 +675,8 @@ type UpdateKubernetesStaticNodepool struct {
 }
 
 func (k *KubernetesService) UpdateStaticNodepool(ctx context.Context, params UpdateKubernetesStaticNodepool) (*UpdateResponse, error) {
-	reqUrl := fmt.Sprintf("kubernetes/%d/nodepool/%s/update", params.ClusterId, params.NodePoolId) // Updated path parameter name
-	req, _ := k.client.NewRequest("POST", reqUrl, &params)                                         // Added params to request body
+	reqUrl := fmt.Sprintf("kubernetes/%d/nodepool/%s/update", params.ClusterId, params.NodePoolId)
+	req, _ := k.client.NewRequest("POST", reqUrl, &params)
 
 	var kubernetes UpdateResponse
 	_, err := k.client.Do(req, &kubernetes)

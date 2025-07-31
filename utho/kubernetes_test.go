@@ -63,7 +63,7 @@ func TestKubernetesService_Read_happyPath(t *testing.T) {
 	_ = faker.FakeData(&dummyCluster)
 	dummyCluster.Info.Cluster.ID = clusterId
 
-	serverResponse, _ := json.Marshal(dummyCluster)
+	serverResponse, _ := json.Marshal(dummyCluster)			
 
 	URL := fmt.Sprintf("/kubernetes/%d", clusterId)
 	mux.HandleFunc(URL, func(w http.ResponseWriter, req *http.Request) {
